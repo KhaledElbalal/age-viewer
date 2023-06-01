@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
-import { ListGroup, Button } from 'react-bootstrap';
+import { Button } from 'antd';
 import React from 'react';
 import uuid from 'react-uuid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import KeyWordFinder from '../../features/query_builder/KeyWordFinder';
 
 const BuilderSelection = ({ finder, setQuery, currentWord }) => {
@@ -10,23 +12,24 @@ const BuilderSelection = ({ finder, setQuery, currentWord }) => {
     setQuery(selectedVal);
   };
   return (
-    <ListGroup>
+    <ul className="option-list">
       {
     finder?.getConnectedNames(currentWord).map(
       (element) => (
-        <ListGroup.Item key={uuid()}>
+        <li className="list-item" key={uuid()}>
           <Button
-            size="small"
+            className="btn btn-option"
             onClick={handleClick}
             data-val={element}
+            icon={<FontAwesomeIcon icon={faPlus} />}
           >
             {element}
           </Button>
-        </ListGroup.Item>
+        </li>
       ),
     )
     }
-    </ListGroup>
+    </ul>
   );
 };
 

@@ -17,6 +17,11 @@
  * under the License.
  */
 
+:root {
+  --green-success: #38a169;
+  --blue-primary: #3182ce;
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -24,6 +29,39 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.btn {
+  border-radius: 0.375rem;
+  margin: 0;
+}
+
+.btn > * + * {
+  margin-left: 0.375rem;
+}
+
+.btn-success {
+  background-color: var(--green-success);
+  border: 1px solid var(--green-success);
+  color: white;
+}
+
+.btn-success:hover {
+  border: 1px solid var(--green-success);
+  background-color: #ffffff;
+  color: var(--green-success);
+}
+
+.btn-option {
+  width: 100%;
+  background-color: var(--blue-primary);
+  border: 1px solid var(--blue-primary);
+  color: white;
+}
+
+.btn-option:hover {
+  border: 1px solid var(--blue-primary);
+  color: var(--blue-primary);
 }

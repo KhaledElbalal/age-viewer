@@ -1,11 +1,13 @@
 .code-mirror-builder{
     display: flex;
-    padding: 5px 5px 5px 5px;
+    border: 1px solid #ddd;
+    margin: 1rem 0;
+    border-radius: 0.375rem;
+
 }
 
 .selection-builder{
     display: block;
-
 }
 
 #submit-builder{
@@ -13,4 +15,14 @@
     display: flex;
     justify-content: right;
     padding-top: 10px;
+}
+
+.option-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.option-list > * + * {
+    margin-top: 0.5rem;
 }

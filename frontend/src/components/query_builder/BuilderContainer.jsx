@@ -3,6 +3,8 @@ import {
 } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import CodeMirror from '../editor/containers/CodeMirrorWapperContainer';
 import BuilderSelection from './BuilderSelection';
@@ -70,7 +72,6 @@ const BuilderContainer = ({ open, setOpen, finder }) => {
       <div className="code-mirror-builder">
         <CodeMirror onChange={handleSetQuery} value={query} />
       </div>
-
       <Space />
       <div className="selection-builder">
         <BuilderSelection
@@ -80,12 +81,20 @@ const BuilderContainer = ({ open, setOpen, finder }) => {
         />
       </div>
       <div id="submit-builder">
-        <Button size="sm" onClick={handleSubmit}>Submit</Button>
+        <Button
+          className="btn btn-success"
+          size="lg"
+          icon={<FontAwesomeIcon icon={faArrowRight} />}
+          onClick={handleSubmit}
+        >
+          Submit
+        </Button>
       </div>
 
     </Drawer>
   );
 };
+
 BuilderContainer.propTypes = {
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,

@@ -22,7 +22,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Row, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import EditorContainer from '../../contents/containers/Editor';
 import Sidebar from '../../sidebar/containers/Sidebar';
 import Contents from '../../contents/containers/Contents';
@@ -95,7 +95,8 @@ const DefaultTemplate = ({
   return (
     <div className="default-template">
       { isOpen && <Modal /> }
-      <input
+      {/* Commented out because it is not used. */}
+      {/* <input
         type="radio"
         className="theme-switch"
         name="theme-switch"
@@ -110,11 +111,11 @@ const DefaultTemplate = ({
         id="dark-theme"
         checked={theme === 'dark'}
         readOnly
-      />
+      /> */}
       <Row className="content-row">
         <div>
-          <Button onClick={() => setOpen(true)}>
-            <FontAwesomeIcon icon={faBars} />
+          <Button className="sticky" onClick={() => setOpen(true)}>
+            <FontAwesomeIcon icon={faEdit} />
           </Button>
           <BuilderContainer open={open} setOpen={setOpen} finder={finder} />
         </div>
