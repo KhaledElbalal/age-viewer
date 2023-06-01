@@ -144,7 +144,6 @@ const Editor = ({
       <div className="editor">
         <div className="container-fluid editor-area card-header">
           <div className="input-group input-style">
-
             <div id="codeMirrorEditor" className="form-control col-11 editor-code-wrapper">
               <CodeMirror
                 onClick={onClick}
@@ -152,7 +151,7 @@ const Editor = ({
                 onChange={setCommand}
               />
             </div>
-            <div className="input-group-append ml-auto editor-button-wrapper" id="editor-buttons">
+            <div className="input-group-append ml-auto editor-button-wrapper my-auto" id="editor-buttons">
               {/* <button className="frame-head-button btn btn-link"
                type="button" onClick={() => favoritesCommand()}>
                 <FontAwesomeIcon
@@ -160,11 +159,12 @@ const Editor = ({
                   size="lg"
                 />
               </button> */}
-              <button className={command ? 'btn show-eraser' : 'btn hide-eraser'} type="button" id="eraser" onDoubleClick={() => clearCommand()}>
+              <button className="frame-head-button btn" type="button" id="eraser" onDoubleClick={() => clearCommand()} disabled={!command}>
                 <FontAwesomeIcon
                   icon={faTimesCircle}
-                  size="1x"
+                  size="2x"
                 />
+                <p>Erase</p>
               </button>
               <button
                 className="frame-head-button btn btn-link"
@@ -173,6 +173,7 @@ const Editor = ({
                 title="Run Query"
               >
                 <IconPlay />
+                <p>Run</p>
               </button>
               <button
                 className="frame-head-button btn btn-link"
@@ -192,6 +193,7 @@ const Editor = ({
                 title={(isActive) ? 'Hide' : 'Show'}
               >
                 <SideBarToggle isActive={isActive} />
+                <p>Toggle</p>
               </button>
               <button
                 className="frame-head-button btn btn-link"
@@ -203,6 +205,7 @@ const Editor = ({
                   icon={isLabel ? faToggleOn : faToggleOff}
                   size="2x"
                 />
+                <p>Label</p>
               </button>
             </div>
           </div>
