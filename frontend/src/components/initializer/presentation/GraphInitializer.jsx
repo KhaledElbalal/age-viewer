@@ -1,13 +1,15 @@
 import React, { useState, useRef } from 'react';
 import {
-  /* Form, */ Modal, Row, Col, Button, ListGroup, Spinner, Alert,
+  /* Form, */ Modal, Row, Col, ListGroup, Spinner, Alert,
 } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faMinusCircle, faUpload } from '@fortawesome/free-solid-svg-icons';
 import uuid from 'react-uuid';
 import PropTypes from 'prop-types';
 import './GraphInit.scss';
-import { Divider, Checkbox, Input } from 'antd';
+import {
+  Button, Divider, Checkbox, Input,
+} from 'antd';
 import { useDispatch } from 'react-redux';
 import { addAlert } from '../../../features/alert/AlertSlice';
 import { changeGraph } from '../../../features/database/DatabaseSlice';
@@ -140,11 +142,11 @@ const InitGraphModal = ({ show, setShow }) => {
       </Col>
       <Divider />
       <Row className="modalRow">
-        <Button onClick={() => nodeInputRef.current.click()}>
+        <Button icon={<FontAwesomeIcon icon={faUpload} />} className="btn-option" onClick={() => nodeInputRef.current.click()}>
           Upload Nodes
           <input type="file" ref={nodeInputRef} onChange={handleSelectNodeFiles} accept=".csv" multiple hidden />
         </Button>
-        <Button onClick={() => edgeInputRef.current.click()}>
+        <Button icon={<FontAwesomeIcon icon={faUpload} />} className="btn-option" onClick={() => edgeInputRef.current.click()}>
           Upload Edges
           <input type="file" ref={edgeInputRef} onChange={handleSelectEdgeFiles} accept=".csv" multiple hidden />
         </Button>
@@ -250,10 +252,10 @@ const InitGraphModal = ({ show, setShow }) => {
           </Col>
         </Modal.Body>
         <Modal.Footer>
-          <Button id="clearButton" onClick={clearState}>
+          <Button className="btn btn-danger" id="clearButton" onClick={clearState}>
             Clear
           </Button>
-          <Button onClick={handleSubmit}>
+          <Button className="btn btn-success" onClick={handleSubmit}>
             Done
           </Button>
         </Modal.Footer>

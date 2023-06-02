@@ -20,6 +20,7 @@
 :root {
   --green-success: #38a169;
   --blue-primary: #007bff;
+  --red-danger: #e53e3e;
 }
 
 body {
@@ -52,6 +53,18 @@ code {
   border: 1px solid var(--green-success);
   background-color: #ffffff;
   color: var(--green-success);
+}
+
+.btn-danger {
+  background-color: var(--red-danger);
+  border: 1px solid var(--red-danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  border: 1px solid var(--red-danger);
+  background-color: #ffffff;
+  color: var(--red-danger);
 }
 
 .btn-option {
